@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>{% include "style.css" %}
+  </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="style.js"></script>
+</head>
+<body>
+   
+        <div class="head-box">
+                <h1>Audio Compression</h1>
+        </div>
+      
+      <div class="body-container-wrapper">
+          <div class="row">
+        <div class="container">
+             <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+            <button type="button" class="button" ><input type="file" class="upload-input" name="myfile"/></button>
+
+                  <button type="submit" class="button" name="uploadbutton" onclick="myFunction()">Upload file</button>
+            </form>
+              {% if uploaded_file_url %}
+    <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+  {% endif %}
+        </div>
+          <div class="contatiner">
+              <form method="post" enctype="multipart/form-data">
+                <button type="button" class="button" name="uploadbutton" onclick="myFunction()">Compress file</button>
+                <button type="button" class="button" name="uploadbutton">Download File</button>
+        </form>
+            </div>
+        </div>
+
+        </div>
+        <!-- <div class="result-container">
+            <div class="container">
+                <button type="button" class="button" name="uploadbutton" style="margin: 0px 0px 0px 50px;">Size of Audio</button><br><br>
+                <input type="text" class="button">
+            </div>
+            <div class="container">
+                <button type="button" >PSNR</button>
+                    <input type="text">
+                    <button type="button" >PSNR</button>
+                    <input type="text">
+                    <button type="button" >PSNR</button>
+                    <input type="text">
+            
+                </div>
+
+            <div class="container">
+            <button type="button" class="button" name="uploadbutton" style="margin: 0px 50px 0px 0px;">Compress Sized</button><br><br>
+            <input type="text" class="button">
+        </div>
+            <div class="container"></div>
+
+
+        </div> -->
+        <div class="row">
+            <div class="container " id="img"></div>
+            <div class="container " id="img2"></div>
+        </div>
+        <h3>Result</h3>
+        <table>
+            <tr>
+                <td>
+                    <button type="button" class="button" name="uploadbutton">Compress Sized</button><br><br>
+                    <input type="text" class="button">
+                  </td>  
+                  <!-- <td>
+                    <button type="button" class="button" name="uploadbutton">PSNR</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="button"><br><br>
+                    <button type="button" class="button" name="uploadbutton">MISC</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="button"><br><br>
+                    <button type="button" class="button" name="uploadbutton"> Compress Ratio</button>
+                    <input type="text" class="button"><br><br> 
+                </td>   -->
+
+                  <td>
+                    <button type="button" class="button" name="uploadbutton">Compress Sized</button><br><br>
+                    <input type="text" class="button">
+                </td>  
+
+                </tr>
+
+        </table>
+        
+      <div class="footer-container-wrapper">
+        <div class="footer-container">
+          <div class="custom-footer-bg">
+            <div class="page-center">
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
+<script type="text/javascript">
+function myFunction() {
+    var par = document.getElementById('img');
+var img = document.createElement('img');
+img.src = 'i.png';
+par.appendChild(img);
+}
+
+function myDownload(){
+    var par = document.getElementById('img2');
+var img = document.createElement('img');
+img.src = 'j.png';
+par.appendChild(img);
+}
+</script>
